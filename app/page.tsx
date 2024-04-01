@@ -5,6 +5,12 @@ import styles from './page.module.css';
 import { generateClient } from 'aws-amplify/data';
 import { Schema } from '@/amplify/data/resource';
 
+// const uuid = () => {
+//   return 'xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/x/g, function () {
+//     return Math.floor(Math.random() * 16).toString(16);
+//   });
+// };
+
 export default function Home() {
   // TODO 1.　Todoモデルにデータ登録
   // TODO 2. Todoモデルを一覧表示
@@ -15,7 +21,6 @@ export default function Home() {
     alert('addTodo');
     (async () => {
       const res = await client.models.Todo.create({
-        id: new Date(),
         content: 'Todo content',
         tag: 'tag1',
         deleteFlg: false,
