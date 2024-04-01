@@ -13,6 +13,7 @@ const schema = a.schema({
       content: a.string(),
       tag: a.string(),
       deleteFlg: a.boolean(),
+      dispOrder: a.integer(),
     })
     .authorization([a.allow.owner(), a.allow.public().to(['read'])]),
 });

@@ -12,10 +12,13 @@ import { Schema } from '@/amplify/data/resource';
 // };
 
 export default function Home() {
+  Amplify.configure();
+  
   // TODO 1.　Todoモデルにデータ登録
   // TODO 2. Todoモデルを一覧表示
   // TODO 3. build エラー解消?
   const client = generateClient<Schema>();
+
 
   const addTodo = () => {
     alert('addTodo');
