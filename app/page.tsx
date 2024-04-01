@@ -1,9 +1,35 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './page.module.css';
+import { generateClient } from 'aws-amplify/data';
+import { Schema } from '@/amplify/data/resource';
 
 export default function Home() {
+  // TODO 1.　Todoモデルにデータ登録
+  // TODO 2. Todoモデルを一覧表示
+  // TODO 3. build エラー解消?
+  const client = generateClient<Schema>();
+
+  const addTodo = () => {
+    alert('addTodo');
+    (async () => {
+      const res = await client.models.Todo.create({
+        id: new Date(),
+        content: 'Todo content',
+        tag: 'tag1',
+        deleteFlg: false,
+      });
+      console.log('create result', res);
+    })();
+  };
+
   return (
     <main className={styles.main}>
+      <div className={styles.grid}>
+        <button onClick={() => addTodo()}>add TODO</button>
+      </div>
+
       <div className={styles.description}>
         <p>
           Get started by editing HOGEHOGEHOGE&nbsp;
