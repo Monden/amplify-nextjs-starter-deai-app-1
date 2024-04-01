@@ -11,6 +11,8 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
+      tag: a.string(),
+      deleteFlg: a.boolean(),
     })
     .authorization([a.allow.owner(), a.allow.public().to(['read'])]),
 });
